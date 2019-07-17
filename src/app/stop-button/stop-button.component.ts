@@ -1,5 +1,6 @@
-import { Component, OnInit, APP_INITIALIZER } from '@angular/core';
+import { Component, OnInit, APP_INITIALIZER, Input } from '@angular/core';
 import { appInitializerFactory } from '@angular/platform-browser/src/browser/server-transition';
+import { IMedia } from '../app.component';
 
 @Component({
   selector: 'app-stop-button',
@@ -8,14 +9,14 @@ import { appInitializerFactory } from '@angular/platform-browser/src/browser/ser
 })
 export class StopButtonComponent implements OnInit {
 
-  name : string = "vishwas";
+  @Input('playItem') playItem : IMedia;
   constructor() { }
 
   ngOnInit() {
   }
 
   showSummary() {
-    console.log("kkkkkkkk");
+    console.log(this.playItem.src);
   }
   
 }

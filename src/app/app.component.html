@@ -6,6 +6,7 @@
                 <vg-play-pause></vg-play-pause>
                 <vg-playback-button></vg-playback-button>
             
+                <app-stop-button [playItem]="media"></app-stop-button>
                 <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
             
                 <vg-scrub-bar>
@@ -31,9 +32,6 @@
                 crossorigin>
             </video>          
         </vg-player>
-    </div>    
-    <div>
-        <p (click)="showSummary()"><font color="#FFFFFF">STOP</font></p>  
-    </div>        
+    </div>       
 </body>
 </html>

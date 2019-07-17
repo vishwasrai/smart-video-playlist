@@ -39,9 +39,6 @@ export class AppComponent {
         this.currentItem = item;
     }
 
-    onClickStopPlaylist {
-      console.log("kkkkkkkk");
-    }
 
   
 }
