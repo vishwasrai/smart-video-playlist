@@ -14,31 +14,47 @@ export interface IMedia {
 export class AppComponent {
 
   playlist: Array<IMedia> = [
-      {
-          title: 'Pale Blue Dot',
-          src: 'http://static.videogular.com/assets/videos/videogular.mp4',
-          type: 'video/mp4'
-      },
-      {
-          title: 'Big Buck Bunny',
-          src: 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
-          type: 'video/mp4'
-      },
-      {
-          title: 'Elephants Dream',
-          src: 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
-          type: 'video/mp4'
-      }
+    {
+        title: 'Pale Blue Dot',
+        src: 'http://static.videogular.com/assets/videos/videogular.mp4',
+        type: 'video/mp4'
+    },
+    {
+        title: 'Big Buck Bunny',
+        src: 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
+        type: 'video/mp4'
+    },
+    {
+        title: 'Elephants Dream',
+        src: 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
+        type: 'video/mp4'
+    }
   ];
 
   currentIndex = 0;
   currentItem: IMedia = this.playlist[ this.currentIndex ];
- 
-    onClickPlaylistItem(item: IMedia) {
-        this.currentIndex = 0;
-        this.currentItem = item;
-    }
+
+  constructor() {
+  }
 
 
-  
+  nextVideo() {
+  this.currentIndex++;
+
+  if (this.currentIndex === this.playlist.length) {
+      this.currentIndex = 0;
+  }
+
+  this.currentItem = this.playlist[ this.currentIndex ];
+  }
+
+
+  onClickPlaylistItem(item: IMedia, index: number) {
+  this.currentIndex = index;
+  this.currentItem = item;
+  }
+
+  addNewPlaylistItem(val: String, url: String) {
+    console.log(val);
+  }
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit, APP_INITIALIZER, Input } from '@angular/core';
-import { appInitializerFactory } from '@angular/platform-browser/src/browser/server-transition';
-import { IMedia } from '../app.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { VgMedia } from 'videogular2/core';
 
 @Component({
   selector: 'app-stop-button',
@@ -9,14 +8,15 @@ import { IMedia } from '../app.component';
 })
 export class StopButtonComponent implements OnInit {
 
-  @Input('playItem') playItem : IMedia;
+  @Input('playItem') playItem : VgMedia;
   constructor() { }
 
   ngOnInit() {
   }
 
-  showSummary() {
-    console.log(this.playItem.src);
+  stopVideo() {
+    this.playItem.pause();
   }
+
   
 }
